@@ -52,7 +52,7 @@ export async function fetchAllPackageVersions(packageName: string): Promise<Pack
       .map(([version, meta]) => ({
         version,
         time: meta.time,
-        hasProvenance: meta.provenance === 'trustedPublisher' || meta.provenance === true,
+        hasProvenance: meta.provenance,
         deprecated: meta.deprecated,
       }))
       .sort((a, b) => compare(b.version, a.version))
